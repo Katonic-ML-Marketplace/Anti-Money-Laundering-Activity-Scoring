@@ -1,9 +1,11 @@
 FROM python:3.8.2-slim
 
+WORKDIR /app
 COPY app.py .
 COPY money_laudering_data.csv .
 COPY finalized_model.sav .
 COPY logo.png .
+COPY favicon.ico .
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
