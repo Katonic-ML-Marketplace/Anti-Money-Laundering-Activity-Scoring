@@ -1,6 +1,4 @@
 import pickle
-import requests
-from io import BytesIO
 from PIL import Image
 
 import pandas as pd
@@ -8,9 +6,7 @@ import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestRegressor
 
-
-response = requests.get(url='https://katonic.ai/favicon.ico')
-im = Image.open(BytesIO(response.content))
+im = Image.open("./favicon.ico")
 
 st.set_page_config(
     page_title='Anti-Money Laundering Activity Scoring', 
