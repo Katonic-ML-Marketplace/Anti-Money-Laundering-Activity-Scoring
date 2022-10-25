@@ -19,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state = 'auto'
 )
 
-st.sidebar.image('logo.png')
+st.sidebar.image('image/logo.png')
 st.sidebar.title('Anti-Money Laundering Activity Scoring')
 st.sidebar.write('---')
 
@@ -30,7 +30,7 @@ This app predicts which cases will result in a **SAR filing**!
 st.write('---')
 
 # Loads Dataset
-data_path = 'money_laudering_data.csv'
+data_path = 'data/money_laudering_data.csv'
 data_df = pd.read_csv(data_path, encoding = 'ISO-8859-1')
 data_df = data_df.drop(['csrNotes'], axis=1)
 data_df = data_df[data_df['income'].notna()]
@@ -122,7 +122,7 @@ X = min_max_scaler.fit_transform(X)
 
 # to retrain
 agree = st.checkbox('Check to retrain the model')
-filename = 'finalized_model.sav'
+filename = 'model/finalized_model.sav'
 if agree:
     # Build Regression Model
     model = RandomForestRegressor() 
